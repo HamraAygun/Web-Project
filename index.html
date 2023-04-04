@@ -1,0 +1,159 @@
+<!--<!DOCTYPE html>-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homepage</title>
+
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+
+      <script src="session.js"></script>
+
+
+
+</head>
+<body>
+
+  <div class="container">
+    <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
+      <a href="index.html" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
+        <img src="logo.png" width="90" height="90"/>
+      </a>
+
+      <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+        <li><a href="about.html" class="nav-link px-2 link-dark">ABOUT</a></li>
+        <li><a href="#" class="nav-link px-2 link-dark" onclick="login()">APPLY NOW</a></li>
+        <li><a href="student-life.html" class="nav-link px-2 link-dark">STUDENT LIFE</a></li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle px-2 link-dark" href="#" data-bs-toggle="dropdown" aria-expanded="true">SCHOOL</a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="school-kadir-has.html">Kadir Has University</a></li>
+            <li><a class="dropdown-item" href="school-cyril.html">Cyril and Methodius University</a></li>
+            <li><a class="dropdown-item" href="school-berlin.html">Berlin University of Applied Sciences</a></li>
+          </ul>
+        </li>
+      </ul>
+
+     
+      <div class="col-md-3 text-end" id="header_sag">
+        <div id="butondiv">
+          <a href="login.html"><button type="button" class="btn btn-outline-primary me-2">Login</button></a>
+            <a href="singup.html"><button type="button" class="btn btn-primary">Sign-up</button></a>
+
+        </div>
+
+      </div>
+      <div class="text-end">
+          <button type="button" class="btn btn-secondary me-2" style="display:none" id="logout_Btn" onclick="logout()">Logout</button>
+      </div>
+    </header>
+  </div>
+
+
+
+  <div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#myCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="khasy.jpg"  class="bd-placeholder-img" width="100%" height="500" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"/>
+        
+        <div class="container">
+          <div class="carousel-caption text-start">
+            <h1>Kadir Has University</h1>
+            <p><a class="btn btn-lg btn-primary" target="_blank" href="https://www.khas.edu.tr/en/">View more</a></p>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img src="cyril.jpg" class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"/>
+        <div class="container">
+          <div class="carousel-caption">
+            <h1>Cyril and Methodius University</h1>
+            <p><a class="btn btn-lg btn-primary" target="_blank" href="https://www.ukim.edu.mk/en_index.php">View more</a></p>
+          </div>
+        </div>
+      </div>
+      <div class="carousel-item">
+        <img src="berlin.jpg" class="bd-placeholder-img" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"/>
+        <div class="container">
+          <div class="carousel-caption text-end">
+            <h1>Berlin University of Applied Sciences</h1>
+            <p><a class="btn btn-lg btn-primary" target="_blank" href="https://www.srh-berlin.de/en/bachelor/">View more</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+
+  <br>
+  <br>
+  <br>
+
+
+  <div class="container marketing">
+
+    <div class="row">
+      <div class="col-lg-8">
+        <div class="row featurette">
+          <div class="col-md-8">
+            <br>
+            <br>
+            <h2 class="featurette-heading fw-normal lh-1">2 Years, 2 Universities, 2 Degrees<span class="text-muted"></span></h2>
+            <br>
+            <p class="lead"><b>To be able to apply for the Erasmus programme </b></p>
+            <p class="lead"><b><span id="countdown_timer"></span></b></p>
+          </div>
+          <script src="countdown.js"></script>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <img src="logo.png" class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><rect width="100%" height="100%" fill="#777"/><text x="50%" y="50%" fill="#777" dy=".3em"></text>
+        <br>
+        <br>
+        <p> CyberMACS is one of the European top-quality Master Courses selected by the Erasmus+ Program</p>
+        <p><a class="btn btn-primary" href="#" onclick="login()">Apply NOW! &raquo;</a></p>
+      </div>
+    </div>
+
+
+
+  <div class="container">
+    <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+      <div class="col-md-4 d-flex align-items-center">
+        <a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
+          <svg class="bi" width="30" height="24"><use xlink:href="#bootstrap"/></svg>
+        </a>
+        <span class="mb-3 mb-md-0 text-muted"><p>Copyright &copy; <script>document.write(new Date().getFullYear())</script> All Rights Reserved</p></span>
+      </div>
+  
+      <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+        <li class="ms-3"><a target="_blank" class="text-muted" href="https://www.linkedin.com/in/cybermacs-project/"><img src="link.png" class="bi" width="24" height="24"><use xlink:href="#Linkedin"/></svg></a></li>
+        <li class="ms-3"><a target="_blank" class="text-muted" href="https://www.instagram.com/cybermacsproject/"><img src="ins.png" class="bi" width="24" height="24"><use xlink:href="#instagram"/></a></li>
+        <li class="ms-3"><a target="_blank" class="text-muted" href="https://www.youtube.com/results?search_query=cybermacs"><img src="yoytube.png" class="bi" width="24" height="24" ><use xlink:href="#youtube"/></a></li>
+      </ul>
+
+    </footer>
+  </div>
+
+  <script>
+    checkLogin();
+</script>
+
+    
+</body>
+</html>

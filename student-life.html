@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student-Life</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+
+    <script src="session.js"></script>
+
+    <script src="student-life.js"></script>
+
+
+
+
+
+</head>
+<body>
+
+    <div class="container">
+        <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
+          <a href="index.html" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
+            <img src="logo.png" width="90" height="90"/>
+          </a>
+    
+          <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+            <li><a href="about.html" class="nav-link px-2 link-dark">ABOUT</a></li>
+            <li><a href="#" onclick="login()" class="nav-link px-2 link-dark">APPLY NOW</a></li>
+            <li><a href="student-life.html" class="nav-link px-2 link-secondary">STUDENT LIFE</a></li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle px-2 link-dark" href="#" data-bs-toggle="dropdown" aria-expanded="true">SCHOOL</a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="school-kadir-has.html">Kadir Has University</a></li>
+                <li><a class="dropdown-item" href="school-cyril.html">Cyril and Methodius University</a></li>
+                <li><a class="dropdown-item" href="school-berlin.html">Berlin University of Applied Sciences</a></li>
+              </ul>
+            </li>
+          </ul>
+    
+         
+          <div class="col-md-3 text-end" id="header_sag">
+            <div id="butondiv">
+                <a href="login.html"><button type="button" class="btn btn-outline-primary me-2">Login</button></a>
+                <a href="singup.html"><button type="button" class="btn btn-primary">Sign-up</button></a>
+    
+            </div>
+    
+          </div>
+          <div class="text-end">
+              <button type="button" class="btn btn-secondary me-2" style="display:none" id="logout_Btn" onclick="logout()">Logout</button>
+          </div>
+        </header>
+      </div>
+
+
+
+      <div class="row justify-content-center">
+        <div class="col-6">
+            <div class="row text-center">   
+              <br>
+              <p style="font-size:x-large; margin-top:50px">You can view the tuition fees of the schools by selecting them below.</p>           
+            </div>
+            <br />
+            <div class="row py-3">
+                <h2 class="text-left">Kadir Has University</h2>
+                <div class="row">
+                    <div class="col-6">
+                        <div class="row py-2">
+                            <hr />
+                            <h4>You can choose</h4>
+                            <select id="khu" class="form-select form-select-m mb-3" aria-label=".form-select-lg example">
+                                <option selected>Choose</option>
+                                <option value="1">Dormitory fee</option>
+                                <option value="2">Tuition fee</option>
+                                <option value="3">Meal fee</option>
+                                <option value="4">Book fee</option>
+                            </select>
+                        </div>
+                        <div class="row">
+                            <button onclick="kadirHas()" class="w-100 btn btn-lg btn btn-primary">Add</button>
+
+                            <b style="margin-top:20px">Total fee: <span id="khu_total">0</span> $</b>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="row py-2">
+                            <hr />
+                            <h4>Chosen ones:</h4>
+                        </div>
+                        <div class="row px-5">
+                            <ul id="khu_fee_list"></ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <br>
+
+
+
+
+    <div class="row justify-content-center">
+      <div class="col-6">
+          <div class="row text-center">                
+                  <i class="fa-solid fa-book-open-reader fa-4x"></i>             
+          </div>
+          <br />
+          <div class="row py-3">
+              <h2 class="text-left">Cyril and Methodius University</h2>
+              <div class="row">
+                  <div class="col-6">
+                      <div class="row py-2">
+                          <hr />
+                          <h4>You can choose</h4>
+                          <select id="cyril" class="form-select form-select-m mb-3" aria-label=".form-select-lg example">
+                              <option selected>Choose</option>
+                              <option value="1">Dormitory fee</option>
+                              <option value="2">Tuition fees</option>
+                              <option value="3">Meal fee</option>
+                              <option value="4">Book fee</option>
+                          </select>
+                      </div>
+                      <div class="row">
+                          <button onclick="cyril()" class="w-100 btn btn-lg btn btn-primary">Add</button>
+
+                          <b style="margin-top:20px">Total fee: <span id="cyril_total">0</span> $</b>
+                      </div>
+                  </div>
+                  <div class="col-6">
+                      <div class="row py-2">
+                          <hr />
+                          <h4>Chosen ones:</h4>
+                      </div>
+                      <div class="row px-5">
+                          <ul id="cyril_fee_list"></ul>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+  <br>
+  <br>
+
+
+
+
+
+  <div class="row justify-content-center">
+    <div class="col-6">
+        <div class="row text-left">                
+                <i class="fa-solid fa-book-open-reader fa-4x"></i>             
+        </div>
+        <br />
+        <div class="row py-3">
+            <h2 class="text-center">Berlin University of Applied Sciences</h2>
+            <div class="row">
+                <div class="col-6">
+                    <div class="row py-2">
+                        <hr />
+                        <h4>You can choose</h4>
+                        <select id="berlin" class="form-select form-select-m mb-3" aria-label=".form-select-lg example">
+                          <option selected>Choose</option>
+                            <option value="1">Dormitory fee</option>
+                            <option value="2">Tuition fees</option>
+                            <option value="3">Meal fee</option>
+                            <option value="4">Book fee</option>
+                        </select>
+                    </div>
+                    <div class="row">
+                        <button onclick="berlin()" class="w-100 btn btn-lg btn btn-primary">Add</button>
+
+                        <b style="margin-top:20px">Total fee:<span id="berlin_total">0</span> $</b>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="row py-2">
+                        <hr />
+                        <h4>Chosen ones:</h4>
+                    </div>
+                    <div class="row px-5">
+                        <ul id="berlin_fee_list"></ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+      <div class="container" style="margin-top:150px">
+        <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+          <div class="col-md-4 d-flex align-items-center">
+            <a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
+              <svg class="bi" width="30" height="24"><use xlink:href="#bootstrap"/></svg>
+            </a>
+            <span class="mb-3 mb-md-0 text-muted"><p>Copyright &copy; <script>document.write(new Date().getFullYear())</script> All Rights Reserved</p></span>
+          </div>
+      
+          <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+            <li class="ms-3"><a target="_blank" class="text-muted" href="https://www.linkedin.com/in/cybermacs-project/"><img src="link.png" class="bi" width="24" height="24"><use xlink:href="#Linkedin"/></svg></a></li>
+            <li class="ms-3"><a target="_blank" class="text-muted" href="https://www.instagram.com/cybermacsproject/"><img src="ins.png" class="bi" width="24" height="24"><use xlink:href="#instagram"/></a></li>
+            <li class="ms-3"><a target="_blank" class="text-muted" href="https://www.youtube.com/results?search_query=cybermacs"><img src="yoytube.png" class="bi" width="24" height="24" ><use xlink:href="#youtube"/></a></li>
+          </ul>
+    
+        </footer>
+      </div>
+    
+    <script>
+        checkLogin();
+    </script>
+    
+    
+</body>
+</html>

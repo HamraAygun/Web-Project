@@ -1,0 +1,225 @@
+<html>
+
+<head>
+  <meta charset="utf-8" />
+
+  <title>Sign-up</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+    crossorigin="anonymous"></script>
+  <script src="https://kit.fontawesome.com/723ea88adc.js" crossorigin="anonymous"></script>
+
+
+
+  <script>
+
+    function sifrekontrol() {
+
+
+
+      var email = document.getElementById("email").value;
+
+
+      var validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+
+
+      var kullanici = [(document.getElementById("email").value), (document.getElementById("sifre").value)]; // yaz�lan de�erlerle, yaz�lcak yerin id'sini �a��rarak dizi olu�turduk
+
+      var sifre2 = document.getElementById("reSifre").value;
+
+      var yazi = document.getElementById("sonuc");
+
+
+
+      var sembol = '.*|,:<>[]{}`;()@&$#%!+-"/';
+
+      var sembolvar = false;
+
+      for (var i = 0; i < sifre2.length; i++) {
+        if (sembol.indexOf(sifre2.charAt(i)) != -1) {
+          sembolvar = true;
+        }
+      }
+
+      if (email == "" || sifre2 =="") {
+        yazi.innerHTML = "Please fill in the blanks"
+        yazi.style.color = "Red";
+
+      }
+      
+      else if (sifre2.length < 8) {
+        yazi.innerHTML = "Your password must be at least 8 characters!"
+        yazi.style.color = "Red";
+
+      }
+
+      else if (sifre2.search(/[a-z]/) < 0 || sifre2.search(/[A-Z]/) < 0 || sifre2.search(/[0-9]/) < 0 || sembolvar == false) {
+        yazi.innerHTML = "Your password must contain at least 1 uppercase character, 1 lowercase character, 1 number and 1 symbol."
+        yazi.style.color = "Red";
+
+      }
+
+    
+      else if (kullanici[1] != sifre2) {
+
+        yazi.innerHTML = "Passwords did not match!";
+        yazi.style.color = "Red";
+      }
+
+
+      else if (kullanici[1] == sifre2 && email.match(validRegex)) {
+
+        yazi.innerHTML = "Your account has been created!";
+        yazi.style.color = "blue";
+
+        sessionStorage.setItem("user", kullanici);  
+
+        window.location = "login.html";
+
+      }
+
+      else {
+
+        yazi.innerHTML = "Email adress is invalid!";
+        yazi.style.color = "Red";
+
+      }
+
+    }
+
+
+
+
+
+    // function kontrol() {
+    //   var giris = document.getElementById('email');
+
+    //   if (ePostaKont(giris.value))
+    //     giris.style.backgroundColor = "white";
+    //   else
+    //     giris.style.backgroundColor = "#F0D0D0";
+    // }
+
+
+
+
+  </script>
+
+
+</head>
+
+<body class="text-center">
+
+
+  <div class="container">
+    <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 mb-4 border-bottom">
+      <a href="index.html" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
+        <img src="logo.png" width="90" height="90"/>
+      </a>
+
+      <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+        <li><a href="about.html" class="nav-link px-2 link-dark">ABOUT</a></li>
+        <li><a href="#" onclick="login()" class="nav-link px-2 link-dark">APPLY NOW</a></li>
+        <li><a href="student-life.html" class="nav-link px-2 link-dark">STUDENT LIFE</a></li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle px-2 link-dark" href="#" data-bs-toggle="dropdown" aria-expanded="true">SCHOOL</a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="school-kadir-has.html">Kadir Has University</a></li>
+            <li><a class="dropdown-item" href="school-cyril.html">Cyril and Methodius University</a></li>
+            <li><a class="dropdown-item" href="school-berlin.html">Berlin University of Applied Sciences</a></li>
+          </ul>
+        </li>
+      </ul>
+      <div class="col-md-3 text-end" id="header_sag">
+        <div id="butondiv">
+            <a href="login.html"><button type="button" class="btn btn-outline-primary me-2">Login</button></a>
+            <a href="singup.html"><button type="button" class="btn btn-primary">Sign-up</button></a>
+        </div>
+      </div>
+      <div class="text-end">
+        <button type="button" class="btn btn-secondary me-2" style="display:none" id="logout_Btn" onclick="logout()">Logout</button>
+      </div>
+    </header>
+  </div>
+<br />
+
+
+  <div class="row justify-content-center">
+
+    <div class="col-4">
+      <form name="form1">
+
+        <i class="fa-sharp fa-solid fa-gears fa-4x"></i>
+        <br />
+        <br />
+        <h1 class="h3 mb-3 fw-normal">Create Your Account</h1>
+
+        <div class="form-floating py-2">
+          <input type="name" name="text1" class="form-control" id="email" onKeyUp="kontrol()"
+            placeholder="E-mail adresi">
+          <label for="floatingInput">Enter your e-mail address.</label>
+        </div>
+        <div class="form-floating py-2">
+          <input type="password" class="form-control" id="sifre" placeholder="Şifrenizi giriniz">
+          <label for="floatingPassword">Enter your password.</label>
+        </div>
+        <div class="form-floating py-2">
+          <input type="password" class="form-control" id="reSifre" placeholder="Şifrenizi giriniz">
+          <label for="floatingPassword"> Enter your password.</label>
+        </div>
+
+        <div class="checkbox mb-3">
+          <label>
+            <input type="checkbox" value="remember-me"> Remember me
+          </label>
+        </div>
+        <div>
+        </div>
+
+      </form>
+      <p id="sonuc"></p>
+      <button onclick="sifrekontrol()" class="w-100 btn btn-lg btn btn-primary">Create Account</button>
+
+    </div>
+  </div>
+
+
+  <div class="container" style="margin-top:250px">
+    <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+      <div class="col-md-4 d-flex align-items-center">
+        <a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
+          <svg class="bi" width="30" height="24">
+            <use xlink:href="#bootstrap" />
+          </svg>
+        </a>
+        <span class="mb-3 mb-md-0 text-muted">
+          <p>Copyright &copy;
+            <script>document.write(new Date().getFullYear())</script> All Rights Reserved
+          </p>
+        </span>
+      </div>
+
+      <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+        <li class="ms-3"><a target="_blank" class="text-muted"
+            href="https://www.linkedin.com/in/cybermacs-project/"><img src="link.png" class="bi" width="24" height="24">
+            <use xlink:href="#Linkedin" /></svg>
+          </a></li>
+        <li class="ms-3"><a target="_blank" class="text-muted" href="https://www.instagram.com/cybermacsproject/"><img
+              src="ins.png" class="bi" width="24" height="24">
+            <use xlink:href="#instagram" />
+          </a></li>
+        <li class="ms-3"><a target="_blank" class="text-muted"
+            href="https://www.youtube.com/results?search_query=cybermacs"><img src="yoytube.png" class="bi" width="24"
+              height="24">
+            <use xlink:href="#youtube" />
+          </a></li>
+      </ul>
+
+    </footer>
+  </div>
+
+</body>
+
+</html>
